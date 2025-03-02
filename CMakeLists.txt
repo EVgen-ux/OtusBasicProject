@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.5.0)
 project(OtusBasicProject)
 
-# Пытаемся найти предустановленный SFML
+
 find_package(SFML REQUIRED graphics window system)
 
 include_directories(include)
