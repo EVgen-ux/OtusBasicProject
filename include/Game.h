@@ -5,10 +5,19 @@
 #include "Player.h"
 #include "Map.h"
 
+// Шаблонная функция для отрисовки объектов
+template <typename T>
+void drawObject(sf::RenderWindow& window, T& object, float offsetX, float offsetY) {
+    object.draw(window, offsetX, offsetY);
+}
+
 class Game {
 public:
     Game();
     void run();
+    void handleEvents();
+    void update(float time);
+    void render();
 
 private:
     sf::RenderWindow window;
@@ -19,9 +28,7 @@ private:
     bool gameOver;
     float offsetX, offsetY;
 
-    void handleEvents();
-    void update(float time);
-    void render();
+
 };
 
 #endif // GAME_H

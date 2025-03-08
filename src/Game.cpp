@@ -84,7 +84,7 @@ void Game::render() {
     window.clear(sf::Color::White);
 
     Map::draw(window, offsetX, offsetY); // Передаем offsetX и offsetY
-    window.draw(player.sprite);
+    drawObject(window, player, offsetX, offsetY); // Используем шаблонную функцию
 
     if (player.win) {
         window.draw(winText);
