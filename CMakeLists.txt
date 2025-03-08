@@ -1,6 +1,8 @@
 cmake_minimum_required(VERSION 3.5.0)
 project(OtusBasicProject)
 
+# Включаем Clang-Tidy
+#set(CMAKE_CXX_CLANG_TIDY "clang-tidy" -checks=*)
 
 find_package(SFML REQUIRED graphics window system)
 

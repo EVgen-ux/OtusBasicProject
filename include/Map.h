@@ -5,12 +5,12 @@
 #include <string>
 
 class Map {
-public:
-    static const int H = 12;//Высота карты
-    static const int W = 40; // Ширина карты
-    static std::string TileMap[H];
+ public:
+  static const int H = 12;  // Высота карты
+  static const int W = 40;  // Ширина карты
+  static std::string TileMap[H];
 
-    static void draw(sf::RenderWindow &window, float offsetX, float offsetY);
+  static void draw(sf::RenderWindow &window, float offsetX, float offsetY);
 };
 
-#endif // MAP_H
+#endif  // MAP_H
