@@ -1,10 +1,10 @@
 #include "Map.h"
 
-#include <SFML/Graphics.hpp>
+#include <SFML/Graphics.hpp> // NOLINT
 
 // Определение статического члена TileMap
-std::string Map::TileMap[Map::H] = {
-    "BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB",
+std::string Map::TileMap[Map::H] = {  // NOLINT
+    "BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB", 
     "B                                      B",
     "B                                      B",
     "B                                      B",
@@ -17,10 +17,10 @@ std::string Map::TileMap[Map::H] = {
     "B        B                            EB",
     "BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB",
 };
-#include <stdexcept>
 void Map::draw(sf::RenderWindow &window, float offsetX, float offsetY) {
   sf::RectangleShape rectangle;
-  rectangle.setSize(sf::Vector2f(32, 32));  // Размер блока
+  //const int TileSize = 32;
+  rectangle.setSize(sf::Vector2f(TileSize, TileSize));  // Размер блока
 
   for (int i = 0; i < H; i++) {
     for (int j = 0; j < W; j++) {
@@ -28,7 +28,7 @@ void Map::draw(sf::RenderWindow &window, float offsetX, float offsetY) {
       if (TileMap[i][j] == 'E') rectangle.setFillColor(sf::Color::Green);
       if (TileMap[i][j] == ' ') continue;
 
-      rectangle.setPosition(j * 32 - offsetX, i * 32 - offsetY);
+      rectangle.setPosition(j * TileSize - offsetX, i * TileSize - offsetY);
       window.draw(rectangle);
     }
   }

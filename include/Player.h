@@ -11,6 +11,8 @@ class Player {
   sf::Sprite sprite;
   float curFrame;
   bool win;
+  int tileFramewidth = 47, tileFrameHeight = 90, tileFrame_dx = 45, tileFrame_dy = 60; 
+  
 
   Player(sf::Texture &image);
   void update(float time, float &offsetX, float &offsetY);
