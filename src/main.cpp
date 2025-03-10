@@ -6,10 +6,10 @@ int main() {
   try {
     Game game;
     game.run();
-} catch (const std::exception& e) {
-    std::cerr << "Произошла ошибка: " << e.what() << std::endl;
+  } catch (const std::exception &e) {
+    std::cerr << "Произошла ошибка: " << e.what() << '\n';
     return 1;
-}
+  }
 
-return 0;
+  return 0;
 }

@@ -1,0 +1,30 @@
+---
+Checks:          '*,
+                -*-avoid-c-arrays,  
+                -*-magic-numbers,
+                -cppcoreguidelines-*,
+                -llvmlibc-*,                
+                -misc-*,
+                -readability-*,
+
+                -altera-id-dependent-backward-branch,
+                -altera-unroll-loops,
+
+                -bugprone-easily-swappable-parameters,
+                -bugprone-narrowing-conversions,
+                -bugprone-easily-swappable-parameters,
+
+                -fuchsia-default-arguments-calls,
+                -fuchsia-statically-constructed-objects,
+
+                -google-readability-braces-around-statements,
+                
+                -hicpp-braces-around-statements,
+                -hicpp-uppercase-literal-suffix,
+                -hicpp-no-array-decay,
+                -hicpp-member-init,
+
+                -modernize-use-trailing-return-type,
+
+                 '
+...

@@ -19,8 +19,8 @@ Game::Game() : window(sf::VideoMode(600, 400), "Game!"), player(playerTexture) {
   winText.setPosition(200, 150);
 
   gameOver = false;
-  offsetX = 0;  // Инициализация offsetX
-  offsetY = 0;  // Инициализация offsetY
+  offsetX = 0; // Инициализация offsetX
+  offsetY = 0; // Инициализация offsetY
 }
 
 void Game::run() {
@@ -40,7 +40,8 @@ void Game::run() {
 void Game::handleEvents() {
   sf::Event event;
   while (window.pollEvent(event)) {
-    if (event.type == sf::Event::Closed) window.close();
+    if (event.type == sf::Event::Closed)
+      window.close();
   }
 
   if (!gameOver) {
@@ -63,17 +64,19 @@ void Game::handleEvents() {
 
 void Game::update(float time) {
   if (!gameOver) {
-    player.update(time, offsetX, offsetY);  // Передаем offsetX и offsetY
+    player.update(time, offsetX, offsetY); // Передаем offsetX и offsetY
 
     // Рассчет смещения для скроллинга
-    offsetX = player.rect.left + player.rect.width / 2 - 600 / 2;
+    offsetX = player.rect.left + player.rect.width / 2 - 600.f / 2;
 
     // Ограничение смещения, чтобы не выходить за границы карты
-    if (offsetX < 0) offsetX = 0;
-    if (offsetX > Map::W * 32 - 600) offsetX = Map::W * 32 - 600;
+    if (offsetX < 0)
+      offsetX = 0;
+    if (offsetX > Map::W * 32 - 600)
+      offsetX = Map::W * 32 - 600;
 
     if (player.win) {
-      gameOver = true;  // Остановка игры
+      gameOver = true; // Остановка игры
     }
   }
 }
@@ -81,8 +84,8 @@ void Game::update(float time) {
 void Game::render() {
   window.clear(sf::Color::White);
 
-  Map::draw(window, offsetX, offsetY);  // Передаем offsetX и offsetY
-  drawObject(window, player, offsetX, offsetY);  // Используем шаблонную функцию
+  Map::draw(window, offsetX, offsetY); // Передаем offsetX и offsetY
+  drawObject(window, player, offsetX, offsetY); // Используем шаблонную функцию
 
   if (player.win) {
     window.draw(winText);

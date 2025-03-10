@@ -4,15 +4,15 @@
 #include <SFML/Graphics.hpp>
 
 class Player {
- public:
+public:
   float dx, dy;
   sf::FloatRect rect;
   bool onGround;
   sf::Sprite sprite;
   float curFrame;
   bool win;
-  int tileFramewidth = 47, tileFrameHeight = 90, tileFrame_dx = 45, tileFrame_dy = 60; 
-  
+  int tileFramewidth = 47, tileFrameHeight = 90, tileFrame_dx = 45,
+      tileFrame_dy = 60;
 
   Player(sf::Texture &image);
   void update(float time, float &offsetX, float &offsetY);
@@ -25,4 +25,4 @@ class Player {
   }
 };
 
-#endif  // PLAYER_H
+#endif // PLAYER_H

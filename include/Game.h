@@ -8,20 +8,20 @@
 
 // Шаблонная функция для отрисовки объектов
 template <typename T>
-void drawObject(sf::RenderWindow& window, T& object, float offsetX,
+void drawObject(sf::RenderWindow &window, T &object, float offsetX,
                 float offsetY) {
   object.draw(window, offsetX, offsetY);
 }
 
 class Game {
- public:
+public:
   Game();
   void run();
   void handleEvents();
   void update(float time);
   void render();
 
- private:
+private:
   sf::RenderWindow window;
   Player player;
   sf::Texture playerTexture;
@@ -31,4 +31,4 @@ class Game {
   float offsetX, offsetY;
 };
 
-#endif  // GAME_H
+#endif // GAME_H
