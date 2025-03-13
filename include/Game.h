@@ -27,6 +27,7 @@ private:
   sf::Texture playerTexture;
   sf::Font font;
   sf::Text winText;
+  sf::Text loseText;
   bool gameOver;
   float offsetX, offsetY;
 };

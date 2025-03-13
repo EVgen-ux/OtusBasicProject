@@ -14,9 +14,16 @@ Game::Game() : window(sf::VideoMode(600, 400), "Game!"), player(playerTexture) {
   winText.setFont(font);
   winText.setString("You Win!");
   winText.setCharacterSize(50);
-  winText.setFillColor(sf::Color::Red);
+  winText.setFillColor(sf::Color::Green);
   winText.setStyle(sf::Text::Bold);
   winText.setPosition(200, 150);
+
+  loseText.setFont(font); // Инициализация текста для проигрыша
+  loseText.setString("You Lose!");
+  loseText.setCharacterSize(50);
+  loseText.setFillColor(sf::Color::Red);
+  loseText.setStyle(sf::Text::Bold);
+  loseText.setPosition(200, 150);
 
   gameOver = false;
   offsetX = 0; // Инициализация offsetX
@@ -77,6 +84,8 @@ void Game::update(float time) {
 
     if (player.win) {
       gameOver = true; // Остановка игры
+    } else if (player.gameOver) { // Проверка на проигрыш
+      gameOver = true;
     }
   }
 }
@@ -89,6 +98,8 @@ void Game::render() {
 
   if (player.win) {
     window.draw(winText);
+  } else if (gameOver) {
+    window.draw(loseText);
   }
 
   window.display();

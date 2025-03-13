@@ -11,6 +11,7 @@ public:
   sf::Sprite sprite;
   float curFrame;
   bool win;
+  bool gameOver;
   int tileFramewidth = 47, tileFrameHeight = 90, tileFrame_dx = 45,
       tileFrame_dy = 60;
 
