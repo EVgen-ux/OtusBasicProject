@@ -3,8 +3,9 @@
 #include <SFML/Graphics.hpp>
 
 // Определение статического члена TileMap
-std::string Map::TileMap[Map::H] = { //NOLINT
+std::string Map::TileMap[Map::H] = {
     // NOLINT
+
     "BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB",
     "B                                      B",
     "B                                      B",
@@ -28,9 +29,9 @@ void Map::draw(sf::RenderWindow &window, float offsetX, float offsetY) {
       if (TileMap[i][j] == 'B')
         rectangle.setFillColor(sf::Color::Black);
       if (TileMap[i][j] == 'E')
-              rectangle.setFillColor(sf::Color::Green);
-              if (TileMap[i][j] == 'A')
-        rectangle.setFillColor(sf::Color::Red); 
+        rectangle.setFillColor(sf::Color::Green);
+      if (TileMap[i][j] == 'A')
+        rectangle.setFillColor(sf::Color::Red);
       if (TileMap[i][j] == ' ')
         continue;
 

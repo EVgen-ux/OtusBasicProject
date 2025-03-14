@@ -2,14 +2,13 @@
 
 #include <cmath>
 
-#include "Map.h" // Подключаем заголовочный файл Map.h
+#include "Map.h"
 
 Player::Player(sf::Texture &image) {
   sprite.setTexture(image);
   sprite.setTextureRect(
       sf::IntRect(tileFramewidth, tileFrameHeight, tileFrame_dx, tileFrame_dy));
-  rect = sf::FloatRect(100, 150, 45, 60); // NOLINT // Начальная позиция на
-                                          // земле
+  rect = sf::FloatRect(100, 150, 45, 60); // NOLINT
   dx = dy = 0;
   curFrame = 0;
   onGround = true; // Персонаж на земле в начале игры
@@ -17,36 +16,20 @@ Player::Player(sf::Texture &image) {
   gameOver = false;
 }
 
-// Конструктор
-// Player::Player(sf::Texture &image)
-//     : dx(0),                // Инициализация dx
-//       dy(0),                // Инициализация dy
-//       rect(100, 210 - 60, 45, 60),  // Инициализация rect
-//       onGround(true),       // Инициализация onGround
-//       sprite(),             // Инициализация sprite
-//       curFrame(0),          // Инициализация curFrame
-//       win(false) {          // Инициализация win
-//   // Установка текстуры и текстуры спрайта
-//   sprite.setTexture(image);
-//   sprite.setTextureRect(sf::IntRect(47, 90, 45, 60));
-// }
-
 void Player::update(float time, float &offsetX, float &offsetY) {
   if (win) {
     return;
   } // Если игра завершена, не обновлять состояние игрока
 
   rect.left += dx * time;
-  Collision('x', Map::TileMap, Map::H,
-            Map::W); // Используем статические члены Map
+  Collision('x', Map::TileMap, Map::H, Map::W);
 
   if (!onGround)
     dy = dy + 0.002 * time; // NOLINT
   rect.top += dy * time;
   onGround = false;
 
-  Collision('y', Map::TileMap, Map::H,
-            Map::W); // Используем статические члены Map
+  Collision('y', Map::TileMap, Map::H, Map::W);
 
   curFrame += static_cast<float>(0.005 * time);
   if (curFrame > 3) {
@@ -68,8 +51,10 @@ void Player::update(float time, float &offsetX, float &offsetY) {
 }
 
 void Player::Collision(char axis, const std::string TileMap[], int H, int W) {
-  for (int i = rect.top / Map::TileSize; i < (rect.top + rect.height) / Map::TileSize; i++) {
-    for (int j = rect.left / Map::TileSize; j < (rect.left + rect.width) / Map::TileSize; j++) {
+  for (int i = rect.top / Map::TileSize;
+       i < (rect.top + rect.height) / Map::TileSize; i++) {
+    for (int j = rect.left / Map::TileSize;
+         j < (rect.left + rect.width) / Map::TileSize; j++) {
       if (TileMap[i][j] == 'B') {
         if (axis == 'x') {
           if (dx > 0) {

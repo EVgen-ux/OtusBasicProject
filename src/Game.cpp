@@ -83,7 +83,7 @@ void Game::update(float time) {
       offsetX = Map::W * 32 - 600;
 
     if (player.win) {
-      gameOver = true; // Остановка игры
+      gameOver = true;            // Остановка игры
     } else if (player.gameOver) { // Проверка на проигрыш
       gameOver = true;
     }
